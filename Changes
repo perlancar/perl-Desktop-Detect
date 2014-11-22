@@ -1,5 +1,10 @@
 Revision history for Desktop-Detect
 
+0.02    2014-11-22 (PERLANCAR)
+
+        - Detect gnome, lxde, openbox, cinnamon.
+
+
 0.01    2014-11-22 (PERLANCAR)
 
         - First release, only support xfce & kde-plasma.
