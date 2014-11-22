@@ -19,28 +19,34 @@ our @EXPORT_OK = qw(detect_desktop); # detect_desktop_cached
 #    $dd_cache;
 #}
 
+sub _det_env {
+    my ($info, $desktop, $env, $re_or_str) = @_;
+    my $cond = ref($re_or_str) eq 'Regexp' ?
+        ($ENV{$env}//'') =~ $re_or_str : ($ENV{$env}//'') eq $re_or_str;
+    if ($cond) {
+        push @{$info->{_debug_info}}, "detect: $desktop via $env env";
+        $info->{desktop} = $desktop;
+        return 1;
+    }
+    0;
+}
+
 sub detect_desktop {
     my @dbg;
     my $info = {_debug_info=>\@dbg};
 
   DETECT:
     {
-        if (($ENV{XDG_MENU_PREFIX}//'') =~ /^xfce-/) {
-            push @dbg, "detect: xfce via XDG_MENU_PREFIX env";
-            $info->{desktop} = 'xfce';
-            last DETECT;
-        }
+        # xfce
+        last DETECT if _det_env($info, 'xfce', 'XDG_MENU_PREFIX', 'xfce-');
+        last DETECT if _det_env($info, 'xfce', 'DESKTOP_SESSION', 'xfce');
 
-        if (($ENV{XDG_DESKTOP_SESSION}//'') =~ /^kde-plasma/) {
-            push @dbg, "detect: kde-plasma via XDG_DESKTOP_SESSION env";
-            $info->{desktop} = 'kde-plasma';
-            last DETECT;
-        }
-        if (($ENV{DESKTOP_SESSION}//'') =~ /^kde-plasma/) {
-            push @dbg, "detect: kde-plasma via DESKTOP_SESSION env";
-            $info->{desktop} = 'kde-plasma';
-            last DETECT;
-        }
+        # kde-plasma
+        last DETECT if _det_env($info, 'kde-plasma', 'XDG_DESKTOP_SESSION', 'kde-plasma');
+        last DETECT if _det_env($info, 'kde-plasma', 'DESKTOP_SESSION', 'kde-plasma');
+
+        # gnome
+        last DETECT if _det_env($info, 'gnome', 'DESKTOP_SESSION', 'gnome');
 
         push @dbg, "detect: nothing detected";
         $info->{desktop} = '';
@@ -82,8 +88,8 @@ Result:
 
 =item * desktop => STR
 
-Possible values: C<xfce>, C<kde-plasma>, or empty string (if can't detect any
-desktop environment running).
+Possible values: C<xfce>, C<kde-plasma>, C<gnome>, or empty string (if can't
+detect any desktop environment running).
 
 =back
 
@@ -95,8 +101,6 @@ desktop environment running).
 =item * Window manager information
 
 =item * XFCE: version
-
-=item * Detect GNOME
 
 =item * Detect MATE
 
