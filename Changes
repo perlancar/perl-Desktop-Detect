@@ -1,5 +1,5 @@
 Revision history for Desktop-Detect
 
-0.01    2014-11-22 (PERLANCAR) (unreleased)
+0.01    2014-11-22 (PERLANCAR)
 
-        - First release.
+        - First release, only support xfce & kde-plasma.
