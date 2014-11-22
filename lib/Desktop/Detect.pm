@@ -43,6 +43,7 @@ sub detect_desktop {
         }
 
         push @dbg, "detect: nothing detected";
+        $info->{desktop} = '';
     } # DETECT
 
     $info;
@@ -55,6 +56,7 @@ sub detect_desktop {
 
  use Desktop::Detect qw(detect_desktop);
  my $res = detect_desktop();
+ say "We are running under XFCE" if $res->{desktop} eq 'xfce';
 
 
 =head1 DESCRIPTION
@@ -68,8 +70,7 @@ is currently running, along with extra information.
 =head2 detect_desktop() => HASHREF
 
 Return a hashref containing information about running desktop environment and
-extra information. Return empty hashref if not detected running under any
-desktop environment.
+extra information.
 
 Detection is done from the cheapest methods, e.g. looking at environment
 variables. Several environment variables are checked, e.g. C<DESKTOP_SESSION>,
@@ -81,7 +82,8 @@ Result:
 
 =item * desktop => STR
 
-Possible values: xfce, kde-plasma.
+Possible values: C<xfce>, C<kde-plasma>, or empty string (if can't detect any
+desktop environment running).
 
 =back
 
