@@ -45,8 +45,18 @@ sub detect_desktop {
         last DETECT if _det_env($info, 'kde-plasma', 'XDG_DESKTOP_SESSION', 'kde-plasma');
         last DETECT if _det_env($info, 'kde-plasma', 'DESKTOP_SESSION', 'kde-plasma');
 
+        # cinnamon
+        last DETECT if _det_env($info, 'cinnamon', 'DESKTOP_SESSION', 'cinnamon');
+
         # gnome
         last DETECT if _det_env($info, 'gnome', 'DESKTOP_SESSION', 'gnome');
+
+        # lxde
+        last DETECT if _det_env($info, 'lxde', 'XDG_MENU_PREFIX', 'lxde-');
+        last DETECT if _det_env($info, 'lxde', 'DESKTOP_SESSION', 'LXDE');
+
+        # openbox
+        last DETECT if _det_env($info, 'openbox', 'DESKTOP_SESSION', 'openbox');
 
         push @dbg, "detect: nothing detected";
         $info->{desktop} = '';
@@ -88,8 +98,8 @@ Result:
 
 =item * desktop => STR
 
-Possible values: C<xfce>, C<kde-plasma>, C<gnome>, or empty string (if can't
-detect any desktop environment running).
+Possible values: C<xfce>, C<kde-plasma>, C<gnome>, C<cinnamon>, C<lxde>,
+C<openbox>, or empty string (if can't detect any desktop environment running).
 
 =back
 
@@ -105,10 +115,6 @@ detect any desktop environment running).
 =item * Detect MATE
 
 =item * Detect Unity
-
-=item * Detect LXDE
-
-=item * Detect Cinnamon
 
 =item * Detect JWM
 
