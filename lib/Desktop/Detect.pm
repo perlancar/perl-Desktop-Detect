@@ -104,25 +104,6 @@ C<openbox>, or empty string (if can't detect any desktop environment running).
 =back
 
 
-=head1 TODO
-
-=over
-
-=item * Window manager information
-
-=item * XFCE: version
-
-=item * Detect MATE
-
-=item * Detect Unity
-
-=item * Detect JWM
-
-=item * Detect Windows?
-
-=back
-
-
 =head1 SEE ALSO
 
 =cut
