@@ -1,5 +1,10 @@
 Revision history for Desktop-Detect
 
+0.04    2015-06-05 (PERLANCAR)
+
+	- Detect gnome-classic.
+
+
 0.03    2015-01-03 (PERLANCAR)
 
 	- No functional changes.
