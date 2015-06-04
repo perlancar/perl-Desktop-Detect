@@ -51,6 +51,9 @@ sub detect_desktop {
         # gnome
         last DETECT if _det_env($info, 'gnome', 'DESKTOP_SESSION', 'gnome');
 
+        # gnome-classic
+        last DETECT if _det_env($info, 'gnome-classic', 'DESKTOP_SESSION', 'gnome-classic');
+
         # lxde
         last DETECT if _det_env($info, 'lxde', 'XDG_MENU_PREFIX', 'lxde-');
         last DETECT if _det_env($info, 'lxde', 'DESKTOP_SESSION', 'LXDE');
@@ -98,8 +101,9 @@ Result:
 
 =item * desktop => STR
 
-Possible values: C<xfce>, C<kde-plasma>, C<gnome>, C<cinnamon>, C<lxde>,
-C<openbox>, or empty string (if can't detect any desktop environment running).
+Possible values: C<xfce>, C<kde-plasma>, C<gnome>, C<gnome-classic>,
+C<cinnamon>, C<lxde>, C<openbox>, or empty string (if can't detect any desktop
+environment running).
 
 =back
 
