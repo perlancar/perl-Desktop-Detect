@@ -50,9 +50,8 @@ sub detect_desktop {
 
         # gnome
         last DETECT if _det_env($info, 'gnome', 'DESKTOP_SESSION', 'gnome');
-
-        # gnome-classic
         last DETECT if _det_env($info, 'gnome-classic', 'DESKTOP_SESSION', 'gnome-classic');
+        last DETECT if _det_env($info, 'gnome-fallback', 'DESKTOP_SESSION', 'gnome-fallback');
 
         # lxde
         last DETECT if _det_env($info, 'lxde', 'XDG_MENU_PREFIX', 'lxde-');
