@@ -1,5 +1,13 @@
 Revision history for Desktop-Detect
 
+0.06    2016-10-07 (PERLANCAR)
+
+	- Detect 'plasma' in addition to 'kde-plasma' (KDE5) (thanks dnebauer)
+          [GH#1].
+
+	- Add CLI.
+
+
 0.05    2015-06-05 (PERLANCAR)
 
 	- Detect gnome-fallback.
