@@ -1,0 +1,42 @@
+#!perl
+
+# DATE
+# VERSION
+
+use strict;
+use warnings;
+
+use Data::Dumper;
+use Desktop::Detect qw(detect_desktop);
+
+my $res = detect_desktop();
+{
+    local $Data::Dumper::Terse = 1;
+    print Dumper $res;
+}
+exit($res->{desktop} ? 0 : 1);
+
+# ABSTRACT: Detect desktop (CLI)
+# PODNAME:
+
+=head1 SYNOPSIS
+
+ % detect-desktop
+
+
+=head1 DESCRIPTION
+
+This is a simple CLI to detect desktop. It essentially just dumps the
+information returned by L<Desktop::Detect>.
+
+
+=head1 EXIT CODES
+
+0 if desktop can be detected.
+
+1 if otherwise.
+
+
+=head1 SEE ALSO
+
+L<Desktop::Detect>
