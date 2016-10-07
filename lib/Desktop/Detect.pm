@@ -44,6 +44,8 @@ sub detect_desktop {
         # kde-plasma
         last DETECT if _det_env($info, 'kde-plasma', 'XDG_DESKTOP_SESSION', 'kde-plasma');
         last DETECT if _det_env($info, 'kde-plasma', 'DESKTOP_SESSION', 'kde-plasma');
+        last DETECT if _det_env($info, 'plasma', 'XDG_DESKTOP_SESSION', 'plasma');
+        last DETECT if _det_env($info, 'plasma', 'DESKTOP_SESSION', 'plasma');
 
         # cinnamon
         last DETECT if _det_env($info, 'cinnamon', 'DESKTOP_SESSION', 'cinnamon');
