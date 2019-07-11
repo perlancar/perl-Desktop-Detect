@@ -1,33 +1,33 @@
-0.06    2016-10-07 (PERLANCAR)
+0.06    2016-10-07  Released-By: PERLANCAR
 
-	- Detect 'plasma' in addition to 'kde-plasma' (KDE5) (thanks dnebauer)
+	- Detect 'plasma' in addition to 'kde-plasma' (KDE5)  Released-By: thanks dnebauer
           [GH#1].
 
 	- Add CLI.
 
 
-0.05    2015-06-05 (PERLANCAR)
+0.05    2015-06-05  Released-By: PERLANCAR
 
 	- Detect gnome-fallback.
 
 
-0.04    2015-06-05 (PERLANCAR)
+0.04    2015-06-05  Released-By: PERLANCAR
 
 	- Detect gnome-classic.
 
 
-0.03    2015-01-03 (PERLANCAR)
+0.03    2015-01-03  Released-By: PERLANCAR
 
 	- No functional changes.
 
 	- Rebuild (Generate TODO.md).
 
 
-0.02    2014-11-22 (PERLANCAR)
+0.02    2014-11-22  Released-By: PERLANCAR
 
         - Detect gnome, lxde, openbox, cinnamon.
 
 
-0.01    2014-11-22 (PERLANCAR)
+0.01    2014-11-22  Released-By: PERLANCAR
 
         - First release, only support xfce & kde-plasma.
